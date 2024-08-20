@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ReqRes Users</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+    <button id="addUserBtn" class="add-button">Add User</button>
+    <h1>Hello ReqRes users!</h1>
+    <div class="users-list">
+        <div th:each="user : ${users}" class="user-card">
+            <b th:text="${user.first_name} + ' ' + ${user.last_name}"></b>
+            <p th:text="${user.email}"></p>
+            <img th:src="${user.avatar}" alt="User Avatar">
+            <div>
+                <a th:href="@{'/edit/' + ${user.id}}">Edit</a>
+                <a th:href="@{'/delete/' + ${user.id}}">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="scripts.js"></script>
+</body>
+</html>
